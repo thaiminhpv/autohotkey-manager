@@ -12,7 +12,6 @@ typedelay(message) {
         typing := SubStr(message, x,1)
         Send %typing%
         x := x + 1
-
     }
 }
 
@@ -27,7 +26,7 @@ typedelayUsername(message) {
         }
         Send %typing%
         x := x + 1
-
+        Sleep 100
     }
 }
 
@@ -36,13 +35,19 @@ typedelayUsername(message) {
 ^!+u::
 ; ifwinexist Uplay
 ; {
+    email := clipboard
     WinActivate, Uplay
     Click, 120, 400
     Sleep, 100
     Click, 330, 125
-    typedelayUsername(clipboard)
+    typedelayUsername(email)
+    Send ^a
+    Sleep 100
+    Send ^c
+    Sleep 100
+    Send {Right}
     Send {Tab}
-    typedelay(clipboard)
+    typedelay(email)
     Send {Tab}
     typedelay("aA1234567")
     Send {Tab}
@@ -54,7 +59,7 @@ typedelayUsername(message) {
         Send {Down}
     }
     ; Sleep 3000
-    ; Send {Click, 229, 343}
+    ; Send {Click, 229, 343} ;;the check box
     Sleep 100
     Send {Click, 637, 402}
 
@@ -67,7 +72,7 @@ typedelayUsername(message) {
 
     ;Created Account Successfully
     ; Skip 2-step verification
-    Sleep, 12000
+    Sleep, 9000
 ;;;;;fall though;;;;;;
 ^!+i::
     WinActivate, Uplay
@@ -95,22 +100,27 @@ typedelayUsername(message) {
         WinActivate, Product Activation
         Click, 660, 402
     ; Account dropdown menu
-    Sleep, 5000
+    Sleep, 9000
+^!+p::
     WinActivate, Uplay
-    Sleep 2000
-    Click, 818, 77
+    Sleep 100
+    MouseMove, 818, 77
+    Sleep 400
+    Click
     ; Log out
-    Sleep 1000
+    Sleep 200
     MouseMove, 890, 221
-    Sleep 1000
+    Sleep 200
     Send {WheelDown 12}
+    Sleep 200
+    Click, 711, 596
 
+    Sleep 1000
+    Send ^!+b
 ; } Else {
 ; MsgBox, No
 ; }
 return
-
-
 
 
 ;;;;;;;;;getnada;;;;;;;;;;
@@ -118,23 +128,31 @@ return
 WinActivate, Nada
 Click, 1183, 628
 return
+#[::
+WinActivate, Nada
+Click, 594, 334
+Sleep 3000
+Click, 850, 706
+Sleep 8000
+Click 1168, 570
+Sleep 1000
+Send ^w
+return
 
-
-;;;;;get next email;;;;
+;;;;;get next email from sheet;;;;
 ^!+b::
 WinActivate, Ubisoft fake
 Sleep 300
+Send {Left}
+Send #v
+Sleep 600
+Send {Enter}
+Sleep 200
+Send {Right}
 Send {Down}
 Send ^c
 return
 
 #/::
-;Restart
-CoordMode Screen
-MouseMove, 1560, 1079
-Sleep 1000
-Click, Right
-CoordMode Relative
-Sleep 1000
-Click, 1807, 947
+Reload
 return
