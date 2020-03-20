@@ -3,37 +3,49 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+typedelay(message) {
+    x := 1
+    typing := ""
+    counter := StrLen(message)
+    Loop, %counter% {
+        ; StringLeft, typing, message, x
+        typing := SubStr(message, x,1)
+        Send %typing%
+        x := x + 1
+        ; Sleep 20
+    }
+}
+
 ^!+u::
 ; ifwinexist Uplay
 ; {
 ;      WinActivate, Uplay
 ;     Send {Click, 330, 125}
-    Send {CtrlDown}v{CtrlUp}
+Sleep 4000
+    typedelay(clipboard)
     Loop, 10 {
         Send {BackSpace}
-    Sleep, 200
+        ; Sleep, 100
     }
-    Sleep, 200
+    ; Sleep, 200
     Send {Tab}
-    Send {CtrlDown}v{CtrlUp}
-    Sleep, 200
+    typedelay(clipboard)
+    ; Sleep, 200
     Send {Tab}
-    ; Send aA1234567
-    Sleep, 200
+    typedelay("aA1234567")
+    ; Sleep, 200
     Send {Tab}
-    Send 1
-    Sleep, 200
+    Send {Down}
+    ; Sleep, 200
     Send {Tab}
     Send {Down}
     Send {Tab}
-    Sleep, 200
+    ; Sleep, 200
     Loop, 3 {
         Send {Down}
-    Sleep, 200
+    ; Sleep, 200
     }
     Send {Tab}{Space}
-    Sleep, 200
-; Else {
-;     MsgBox, No
-; }
+    ; Sleep, 200
 return
+
