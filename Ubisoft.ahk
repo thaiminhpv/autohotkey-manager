@@ -135,9 +135,28 @@ Sleep 3000
 Click, 850, 706
 Sleep 8000
 Click 1168, 570
-Sleep 1000
+Sleep 300
 Send ^w
 return
+#]::
+WinActivate, Nada
+y := 405
+Loop, 8 {
+    Sleep 500
+    Click, 77, %y%
+    Sleep 500
+    Click, 594, 334
+    Sleep 3000
+    Click, 850, 706
+    Sleep 8000
+    Click 1168, 570
+    Sleep 300
+    Send ^w
+    y := y + 35
+}
+
+return
+; 114 735 + 33
 
 ;;;;;get next email from sheet;;;;
 ^!+b::
@@ -151,8 +170,17 @@ Sleep 200
 Send {Right}
 Send {Down}
 Send ^c
+
+;;reset
+Send {CtrlUp}{AltUp}{LWinUp}{ShiftUp}
+Sleep 400
+WinWait, Uplay
+WinActivate, Uplay
+; Send ^!+u
 return
 
 #/::
+;;reset
+Send {CtrlUp}{AltUp}{LWinUp}{ShiftUp}
 Reload
 return
