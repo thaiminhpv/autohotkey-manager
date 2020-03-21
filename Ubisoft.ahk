@@ -70,9 +70,38 @@ typedelayUsername(message) {
     Sleep 100
     Send {Click, 637, 402}
 
+;;;;; handle existed username;;;;
+    Loop {
+        Sleep 3000
+        WinActivate, Uplay
+        Click, 436, 125
+        PixelGetColor, errcolor, 194, 119
+
+        if (errcolor == 0x4466FF) {
+            Sleep 2000
+            Send h
+            Sleep 200
+            Click, 330, 125
+            Send ^a
+            Sleep 100
+            Send ^c
+            Sleep 100
+            ; Continue
+            Sleep 100
+            Send {Click, 637, 402}
+
+            ; US - UK only ? Communication
+            Sleep 500
+            ; Click, 116, 199
+            ; Click, 116, 249
+            Send {Click, 637, 402}
+        } Else {
+            Break
+        }
+    }
     ;Created Account Successfully
     ; Skip 2-step verification
-    Sleep, 7500
+    Sleep, 4500
 ;;;;;fall though;;;;;;
 ^!+i::
     WinActivate, Uplay
@@ -273,4 +302,20 @@ return
 ; Send {CtrlUp}{AltUp}{LWinUp}{ShiftUp}
 MsgBox, reseted
 Reload
+return
+
+
+^!+m::
+;;handle exception username existed
+
+    Sleep 2000
+    WinActivate, Uplay
+    Click, 330, 125
+    PixelGetColor, errcolor, 194, 119
+
+if (errcolor == 0x4466FF) {
+    MsgBox done
+} Else {
+    MsgBox done
+}
 return
