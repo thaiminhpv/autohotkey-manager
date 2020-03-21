@@ -72,7 +72,7 @@ typedelayUsername(message) {
 
     ;Created Account Successfully
     ; Skip 2-step verification
-    Sleep, 9000
+    Sleep, 7500
 ;;;;;fall though;;;;;;
 ^!+i::
     WinActivate, Uplay
@@ -100,8 +100,75 @@ typedelayUsername(message) {
         WinActivate, Product Activation
         Click, 660, 402
     ; Account dropdown menu
-    Sleep, 9000
+    Sleep, 7000
 ^!+p::
+    WinActivate, Uplay
+    Sleep 100
+    MouseMove, 818, 77
+    Sleep 400
+    Click
+    ; Log out
+    Sleep 200
+    MouseMove, 890, 221
+    Sleep 200
+    Send {WheelDown 12}
+    Sleep 200
+    Click, 711, 596
+
+    Sleep 1000
+    Send ^!+b
+; } Else {
+; MsgBox, No
+; }
+return
+
+
+^!+y::
+    ; Copy typed manual username
+    Click, 330, 125
+    Send ^a
+    Sleep 100
+    Send ^c
+    Sleep 100
+    ; Continue
+    Sleep 100
+    Send {Click, 637, 402}
+
+    ; US - UK only ? Communication
+    Sleep 500
+    ; Click, 116, 199
+    ; Click, 116, 249
+    Send {Click, 637, 402}
+
+    ;Created Account Successfully
+    ; Skip 2-step verification
+    Sleep, 7500
+;;;;;fall though;;;;;;
+    WinActivate, Uplay
+    Click, 42, 402
+    ; Click on Games tab
+    Sleep, 7000
+    WinActivate, Uplay
+    Click, 210, 65
+    ; Minimize My Games
+    Sleep, 100
+    Click, 55, 273
+    ; Verify Email
+    ; Sleep, 500
+    ; Click, 850, 145
+    ; Click on AC thumbnail game
+    Sleep, 500
+    Click, 140, 452
+    ; Click on button "add to my Games"
+    Sleep, 500
+    Click, 165, 435
+
+    ; Handle Pop up window
+    WinWait, Product Activation
+        WinActivate, Product Activation
+        Click, 660, 402
+    ; Account dropdown menu
+    Sleep, 7000
     WinActivate, Uplay
     Sleep 100
     MouseMove, 818, 77
@@ -184,16 +251,17 @@ return
 WinActivate, Ubisoft fake
 Sleep 300
 Send {Left}
-Send #v
-Sleep 600
-Send {Enter}
+Send %clipboard%
+; Send #v
+; Sleep 600
+; Send {Enter}
 Sleep 200
 Send {Right}
 Send {Down}
 Send ^c
 
 ;;reset
-Send {CtrlUp}{AltUp}{LWinUp}{ShiftUp}
+; Send {CtrlUp}{AltUp}{LWinUp}{ShiftUp}
 Sleep 400
 WinWait, Uplay
 WinActivate, Uplay
@@ -202,6 +270,7 @@ return
 
 #/::
 ;;reset
-Send {CtrlUp}{AltUp}{LWinUp}{ShiftUp}
+; Send {CtrlUp}{AltUp}{LWinUp}{ShiftUp}
+MsgBox, reseted
 Reload
 return
