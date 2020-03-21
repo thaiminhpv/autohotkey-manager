@@ -125,8 +125,29 @@ return
 
 ;;;;;;;;;getnada;;;;;;;;;;
 #z::
-WinActivate, Nada
-Click, 1183, 628
+y := 613
+Loop, 20 {
+    WinActivate, Nada
+    Click, 77, %y%
+    Sleep 300
+    Click, 1183, 628 ; ok pop up
+    Sleep 300
+    Click, 1341, 59 ; get email name
+    Send javascript:document.getElementsByClassName("icon-copy")[0].click();
+    Send {Enter}
+    ; MouseMove, 936, 269 ; scroll up
+    ; Send {WheelUp 12}
+    ; Sleep 500
+    ; Click, 747, 237 ; ok copy
+    Sleep 200
+    WinActivate, Ubisoft fake
+    Sleep 100
+    Send %clipboard%
+    Send {Down}
+    Sleep 100
+    y := y + 35
+}
+; Click, 1183, 628
 return
 #[::
 WinActivate, Nada
@@ -156,7 +177,7 @@ Loop, 8 {
 }
 
 return
-; 114 735 + 33
+; 114 735 + 35
 
 ;;;;;get next email from sheet;;;;
 ^!+b::
