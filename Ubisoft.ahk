@@ -255,10 +255,17 @@ Click 1168, 570
 Sleep 300
 Send ^w
 return
+
+
+
 #]::
+;;;;; Confirm mail nada ;;;;;;;;;;;;;
 WinActivate, Nada
-y := 405
-Loop, 8 {
+; y := 405
+; y := 244
+; y := 142
+y := 474
+Loop, 30 {
     Sleep 500
     Click, 77, %y%
     Sleep 500
@@ -307,14 +314,10 @@ return
 
 ^!+m::
 ;;handle exception username existed
+    PixelGetColor, errcolor, 225, 64
 
-    Sleep 2000
-    WinActivate, Uplay
-    Click, 330, 125
-    PixelGetColor, errcolor, 194, 119
-
-if (errcolor == 0x4466FF) {
-    MsgBox done
+if (errcolor == 0xFFFFFF) {
+    MsgBox True
 } Else {
     MsgBox done
 }
@@ -322,7 +325,7 @@ return
 
 
 #\::
-Loop, 10 {
+Loop, 14 {
 ; ifwinexist Uplay
 ; {
     email := clipboard
@@ -389,10 +392,19 @@ Loop, 10 {
             Break
         }
     }
-    ;Created Account Successfully
     ; Skip 2-step verification
     Sleep, 6000
+
+    ;;;;; Handle Account Creation Unavailable (Block IP)
+    PixelGetColor, errcolor, 225, 64
+
+    if (errcolor == 0xFFFFFF) {
+        MsgBox, IP Banned
+        Break
+    }
+    ;;;;
 ;;;;;fall though;;;;;;
+    ;Created Account Successfully
     WinActivate, Uplay
     Click, 42, 402
     ; Click on Games tab
