@@ -319,3 +319,131 @@ if (errcolor == 0x4466FF) {
     MsgBox done
 }
 return
+
+
+#\::
+Loop, 10 {
+; ifwinexist Uplay
+; {
+    email := clipboard
+    WinActivate, Uplay
+    Click, 120, 400
+    Sleep, 100
+    Click, 330, 125
+    typedelayUsername(email)
+    Send ^a
+    Sleep 100
+    Send ^c
+    Sleep 100
+    Send {Right}
+    Send {Tab}
+    typedelay(email)
+    Send {Tab}
+    typedelay("aA1234567")
+    Send {Tab}
+    Send {Down}
+    Send {Tab}
+    Send {Down}
+    Send {Tab}
+    Loop, 3 {
+        Send {Down}
+    }
+    ; Sleep 3000
+    ; Send {Click, 229, 343} ;;the check box
+    Sleep 100
+    Send {Click, 637, 402}
+
+    ; US - UK only ? Communication
+    Sleep 500
+    Click, 116, 199
+    Click, 116, 249
+    Sleep 100
+    Send {Click, 637, 402}
+
+;;;;; handle existed username;;;;
+    Loop {
+        Sleep 3000
+        WinActivate, Uplay
+        Click, 436, 125
+        PixelGetColor, errcolor, 194, 119
+
+        if (errcolor == 0x4466FF) {
+            Sleep 2000
+            Send h
+            Sleep 200
+            Click, 330, 125
+            Send ^a
+            Sleep 100
+            Send ^c
+            Sleep 100
+            ; Continue
+            Sleep 100
+            Send {Click, 637, 402}
+
+            ; US - UK only ? Communication
+            Sleep 500
+            ; Click, 116, 199
+            ; Click, 116, 249
+            Send {Click, 637, 402}
+        } Else {
+            Break
+        }
+    }
+    ;Created Account Successfully
+    ; Skip 2-step verification
+    Sleep, 6000
+;;;;;fall though;;;;;;
+    WinActivate, Uplay
+    Click, 42, 402
+    ; Click on Games tab
+    Sleep, 7000
+    WinActivate, Uplay
+    Click, 210, 65
+    ; Minimize My Games
+    Sleep, 100
+    Click, 55, 273
+    ; Verify Email
+    ; Sleep, 500
+    ; Click, 850, 145
+    ; Click on AC thumbnail game
+    Sleep, 500
+    Click, 140, 452
+    ; Click on button "add to my Games"
+    Sleep, 500
+    Click, 165, 435
+
+    ; Handle Pop up window
+    WinWait, Product Activation
+        WinActivate, Product Activation
+        Click, 660, 402
+    ; Account dropdown menu
+    Sleep, 7000
+    WinActivate, Uplay
+    Sleep 100
+    MouseMove, 818, 77
+    Sleep 400
+    Click
+    ; Log out
+    Sleep 200
+    MouseMove, 890, 221
+    Sleep 200
+    Send {WheelDown 12}
+    Sleep 200
+    Click, 711, 596
+
+    Sleep 1000
+
+    WinActivate, Ubisoft fake
+    Sleep 300
+    Send {Left}
+    Send %clipboard%
+    Sleep 200
+    Send {Right}
+    Send {Down}
+    Send ^c
+
+    Sleep 9000
+    WinActivate, Uplay
+    Sleep 1000
+}
+return
