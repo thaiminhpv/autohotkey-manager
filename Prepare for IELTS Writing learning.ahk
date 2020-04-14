@@ -3,9 +3,10 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-Run, D:\MyFile\Downloads\Documents\barron writing
+Run, D:\MyFile\Documents\Office\Other\IELTS\barron writing
 WinWait, barron writing
 {
+    Sleep, 1000
     WinActivate, barron writing
     Send ^a{Enter}
     Sleep, 4000
