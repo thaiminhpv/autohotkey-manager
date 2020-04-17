@@ -17,17 +17,11 @@ ExecScript(i) {
 Click
 Click
 Click Right
-Sleep, 200
-Send, {Down}
-Send, {Down}
-Send, {Enter}
-Sleep, 1000
-Click, 578, 55
-ExecScript(0)
-Send, {Enter}
 Sleep, 100
-return
-
+Send, {Down}
+Send, {Down}
+Send, {Enter}
+Sleep, 2000
 !`::
 ExecScript(0)
 Sleep, 200
@@ -35,12 +29,11 @@ Send, ^+{Tab}
 Sleep, 50
 ^`::
 ExecScript(1)
-ExecScript(2)
 Sleep, 1000
-ExecScript(3)
+ExecScript(2)
 Sleep, 3000
 +`::
-ExecScript(4)
+ExecScript(3)
 return
 
 #/::
@@ -49,8 +42,4 @@ return
 
 F4::
 Click, 578, 55
-return
-
-#\::
-ExecScript(0)
 return
