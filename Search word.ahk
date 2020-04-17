@@ -3,6 +3,16 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+OriginX := 762
+OriginY := 92
+distance := 32
+
+ExecScript(i) {
+    global OriginX, OriginY, distance
+    x := OriginX + distance * i
+    Send, {Click, %x%, %OriginY%}
+}
+
 `::
 Click
 Click
@@ -13,30 +23,24 @@ Send, {Down}
 Send, {Enter}
 Sleep, 1000
 Click, 578, 55
-Send, javascript:var a = [...document.querySelectorAll('.hdtb-mitem.hdtb-imb')].filter((e) => e.innerText == "Hình ảnh")[0].children[0];a.setAttribute('target','_blank');a.click();
+ExecScript(0)
 Send, {Enter}
 Sleep, 100
 return
 
 !`::
-WinActivate, Chrome
-Click, 578, 55
-Send, javascript:var a = [...document.querySelectorAll('.hdtb-mitem.hdtb-imb')].filter((e) => e.innerText == "Hình ảnh")[0].children[0];a.setAttribute('target','_blank');a.click();
-Send, {Enter}
-Sleep, 1000
+ExecScript(0)
+Sleep, 200
 Send, ^+{Tab}
+Sleep, 50
 ^`::
-Click, 542, 110
-Send, {Space} Cambridge Dictionary {Enter}
-Sleep, 800
-Click, 578, 55
-Send, javascript:document.querySelectorAll('.bNg8Rb')[3].parentElement.querySelector('a').click();
-Send, {Enter}
-Sleep, 2000
+ExecScript(1)
+ExecScript(2)
+Sleep, 1000
+ExecScript(3)
+Sleep, 3000
 +`::
-Click, 578, 55
-Send, javascript:document.querySelectorAll('.i.i-volume-up.c_aud.htc.hdib.hp.hv-1.fon.tcu.tc-bd.lmr-10.lpt-3')[1].click();
-Send, {Enter}
+ExecScript(4)
 return
 
 #/::
@@ -45,4 +49,8 @@ return
 
 F4::
 Click, 578, 55
+return
+
+#\::
+ExecScript(0)
 return
