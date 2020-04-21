@@ -22,18 +22,22 @@ Send, {Down}
 Send, {Down}
 Send, {Enter}
 Sleep, 2000
-!`::
+^`::
 ExecScript(0)
 Sleep, 200
 Send, ^+{Tab}
 Sleep, 50
-^`::
++`::
 ExecScript(1)
-Sleep, 1000
+Sleep, 1200
 ExecScript(2)
 Sleep, 3000
-+`::
+]::
 ExecScript(3)
+return
+
+[::
+ExecScript(4)
 return
 
 #/::
