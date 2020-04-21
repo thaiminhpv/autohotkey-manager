@@ -18,11 +18,9 @@ Click
 Click
 Click Right
 Sleep, 100
-Send, {Down}
-Send, {Down}
-Send, {Enter}
+Send, {Down}{Down}{Enter}
 Sleep, 2000
-^`::
+!`::
 ExecScript(0)
 Sleep, 200
 Send, ^+{Tab}
@@ -36,14 +34,22 @@ Sleep, 3000
 ExecScript(3)
 return
 
+^`::
+Click, 578, 55
+Send, ^a
+Send, ^c
+SendRaw, https://translate.google.com/?hl=vi#view=home&op=translate&sl=vi&tl=en&text=%clipboard%
+Send, {Enter}
+return
+
 [::
 ExecScript(4)
 return
 
-#/::
-Reload
-return
-
 F4::
 Click, 578, 55
+return
+
+#/::
+Reload
 return
