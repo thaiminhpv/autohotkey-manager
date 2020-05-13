@@ -13,48 +13,16 @@ ExecScript(i) {
     Send, {Click, %x%, %OriginY%}
 }
 
-`::
-Click
-Click
-Click Right
-Sleep, 200
-Send, {Down}{Down}{Enter}
-Sleep, 2000
-F3::
-ExecScript(0)
-Sleep, 200
-Send, ^+{Tab}
-Sleep, 50
-+`::
-ExecScript(1)
-Sleep, 1400
-ExecScript(2)
-Sleep, 3000
-ExecScript(4)
-Sleep, 3000
-ExecScript(3)
+\::
+ExecScript(7)
 return
 
-F2::
-ExecScript(4)
+[::
+ExecScript(5)
 return
 
-F1::
-ExecScript(3)
-return
-
-^`::
-Click, 578, 55
-Send, ^a
-Send, ^c
-SendRaw, https://translate.google.com/?hl=vi#view=home&op=translate&sl=vi&tl=en&text=%clipboard%
-Send, {Enter}
-return
-
-F4::
-WinActivate, ahk_exe chrome.exe
-Sleep, 100
-Send, {CtrlDown}e{CtrlUp}
+]::
+ExecScript(6)
 return
 
 #/::
