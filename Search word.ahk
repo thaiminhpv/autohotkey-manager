@@ -47,8 +47,11 @@ return
 Click, 578, 55
 Send, ^a
 Send, ^c
-SendRaw, https://translate.google.com/?hl=vi#view=home&op=translate&sl=vi&tl=en&text=%clipboard%
-Send, {Enter}
+Send, {Esc}
+Sleep, 100
+ExecScript(8)
+Sleep, 1000
+Send, %clipboard%
 return
 
 F4::
