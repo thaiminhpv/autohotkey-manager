@@ -17,61 +17,79 @@ typedelay(message) {
 }
 
 +!^u::
+Loop, 60 {
     WinActivate, ahk_exe msedge.exe
+    Sleep, 100
     Send {Down}
-    Sleep, 1000
+    Sleep, 100
     Send, {CtrlDown}c{CtrlUp}
-    Sleep, 1000
+    Sleep, 200
     WinWait, ahk_exe upc.exe
     Sleep, 3000
     WinActivate, ahk_exe upc.exe
-    Sleep, 1000
+    color = null
+    while (color != 0x55514D) {
+        Sleep, 1000
+        PixelGetColor, color, 463, 160
+    }
+    Sleep, 200
     Click, 360, 154
-    Sleep, 1000
+    Sleep, 100
     typedelay(clipboard)
-    Sleep, 1000
+    Sleep, 100
     Click, 308, 222
-    Sleep, 1000
+    Sleep, 100
     typedelay("aA1234567")
     Sleep, 1000
+^+!t::
     Click, 622, 402
-    Sleep, 12000
+    ; Sleep, 9000
+
+    color = null
+    while (color != 0x8A4C0E) {
+        Sleep, 1000
+        PixelGetColor, color, 663, 401
+    }
     ;logging in
     Click, 45, 310
     ;agree term service
-    Sleep, 1000
+    Sleep, 100
     Click, 618, 409 ;continue button
-    Sleep, 5000
+    Sleep, 1000
     Click, 46, 402 ;skip 2 step
-    Sleep, 12000
-^+!t::
+    Sleep, 7000
+    ; wait until
+    color = null
+    while (color != 0xFFAA55) {
+        Sleep, 1000
+        PixelGetColor, color, 793, 74
+    }
     WinActivate, ahk_exe upc.exe ; focus back
+    Sleep, 100
     Click, 206, 66 ; click on games tab
     Sleep, 1000
     Click, 156, 579 ; click on game discovery 1
     Sleep, 1000
     Click, 152, 414 ; click on add to my games
-    Sleep, 3000
+    Sleep, 1200
     WinActivate, ahk_class upc_activate_view ; focus on pop up window
-    Sleep, 1000
     Click, 663, 403 ; click ok button
     Sleep, 1000
     WinActivate, ahk_class uplay_main ; focus back to main
-    Sleep, 1000
+    Sleep, 400
     Click, 107, 171 ; back to games button
     Sleep, 1000
     Click, 626, 403 ; ready to scroll
-    Sleep, 1000
+    Sleep, 100
     Send, {WheelDown 1} ; scroll down
-    Sleep, 1000
+    Sleep, 500
     Click, 371, 576 ; click on game discovery 2
     Sleep, 1000
     Click, 182, 444 ; click on add to my games
-    Sleep, 3000
+    Sleep, 1200
     WinActivate, ahk_class upc_activate_view ; focus on pop up window
-    Sleep, 1000
     Click, 663, 403 ; click ok button
-    Sleep, 1000
+    Sleep, 400
     WinActivate, ahk_class uplay_main ; focus back to main
     Sleep 100
     MouseMove, 818, 77
@@ -84,6 +102,7 @@ typedelay(message) {
     Send {WheelDown 12}
     Sleep 200
     Click, 711, 596
+}
 Return
 
 #/::
