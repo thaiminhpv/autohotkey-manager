@@ -29,7 +29,3 @@ SendRaw,    PixelGetColor, color, %x%, %y%
 Send, {Enter}
 SendRaw, }
 Return
-
-#/::
-Reload
-Return
