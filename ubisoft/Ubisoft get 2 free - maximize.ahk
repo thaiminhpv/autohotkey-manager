@@ -25,14 +25,8 @@ Loop, 60 {
     Send, {CtrlDown}c{CtrlUp}
     Sleep, 200
     WinWait, ahk_exe upc.exe
-    Sleep, 3000
+    Sleep, 8000
     WinActivate, ahk_exe upc.exe
-    color = null
-    while (color != 0x55514D) {
-        Sleep, 1000
-        WinActivate, ahk_exe upc.exe
-        PixelGetColor, color, 463, 160
-    }
     Sleep, 200
     Click, 360, 154
     Sleep, 100
@@ -70,6 +64,7 @@ Loop, 60 {
     ;     Sleep, 1000
     ;     PixelGetColor, color, 793, 74
     ; }
+^+!t::  
     WinWait, ahk_exe upc.exe ; focus back
     WinActivate, ahk_exe upc.exe ; focus back
     Sleep, 100
@@ -84,27 +79,23 @@ Loop, 60 {
     Sleep, 1000
     Click, 663, 403 ; click ok button
     Sleep, 1000
-    While, WinExist("ahk_class upc_activate_view") {
-        Sleep, 200
-    }
+    WinWaitClose, ahk_class upc_activate_view
     WinActivate, ahk_class uplay_main ; focus back to main
     Sleep, 400
     Click, 713, 126
     Sleep, 300
     Click, 333, 143 ; back to games button
     Sleep, 1000
-^+!t::
     Click, 343, 724 ; click on game discovery 2
     Sleep, 1000
     Click, 535, 367 ; click on add to my games
     Sleep, 1700
+    WinWait, ahk_class upc_activate_view
     WinActivate, ahk_class upc_activate_view ; focus on pop up window
     Sleep, 1000
     Click, 663, 403 ; click ok button
     Sleep, 1000
-    While, WinExist("ahk_class upc_activate_view") {
-        Sleep, 200
-    }
+    WinWaitClose, ahk_class upc_activate_view
     WinActivate, ahk_class uplay_main ; focus back to main
     ; Log out
     Sleep 300

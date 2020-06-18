@@ -25,13 +25,8 @@ Loop, 60 {
     Send, {CtrlDown}c{CtrlUp}
     Sleep, 200
     WinWait, ahk_exe upc.exe
-    Sleep, 3000
+    Sleep, 8000
     WinActivate, ahk_exe upc.exe
-    color = null
-    while (color != 0x55514D) {
-        Sleep, 1000
-        PixelGetColor, color, 463, 160
-    }
     Sleep, 200
     Click, 360, 154
     Sleep, 100
@@ -69,47 +64,46 @@ Loop, 60 {
     ;     Sleep, 1000
     ;     PixelGetColor, color, 793, 74
     ; }
+^+!t::  
+    WinWait, ahk_exe upc.exe ; focus back
     WinActivate, ahk_exe upc.exe ; focus back
     Sleep, 100
-    Click, 206, 66 ; click on games tab
+    Click, 208, 70 ; click on games tab
     Sleep, 1000
-    Click, 156, 579 ; click on game discovery 1
+    Click, 135, 609 ; click on game discovery 1
     Sleep, 1000
-    Click, 152, 414 ; click on add to my games
+    Click, 469, 352 ; click on add to my games
     Sleep, 1700
+    WinWait, ahk_class upc_activate_view
     WinActivate, ahk_class upc_activate_view ; focus on pop up window
-    Sleep, 100
+    Sleep, 1000
     Click, 663, 403 ; click ok button
     Sleep, 1000
+    WinWaitClose, ahk_class upc_activate_view
     WinActivate, ahk_class uplay_main ; focus back to main
     Sleep, 400
-    Click, 107, 171 ; back to games button
+    Click, 713, 126
+    Sleep, 300
+    Click, 333, 143 ; back to games button
     Sleep, 1000
-    Click, 626, 403 ; ready to scroll
-    Sleep, 100
-    Send, {WheelDown 1} ; scroll down
-    Sleep, 500
-    Click, 371, 576 ; click on game discovery 2
+    Click, 343, 724 ; click on game discovery 2
     Sleep, 1000
-    Click, 182, 444 ; click on add to my games
+    Click, 535, 367 ; click on add to my games
     Sleep, 1700
+    WinWait, ahk_class upc_activate_view
     WinActivate, ahk_class upc_activate_view ; focus on pop up window
-    Sleep, 100
+    Sleep, 1000
     Click, 663, 403 ; click ok button
     Sleep, 1000
-; ^+!t::
+    WinWaitClose, ahk_class upc_activate_view
     WinActivate, ahk_class uplay_main ; focus back to main
     ; Log out
     Sleep 300
-    MouseMove, 818, 77
+    MouseMove, 1777, 68
     Sleep 400
     Click
     Sleep 200
-    MouseMove, 890, 221
-    Sleep 200
-    Send {WheelDown 12}
-    Sleep 200
-    Click, 711, 596
+    Click, 1743, 776
 }
 Return
 

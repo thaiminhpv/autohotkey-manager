@@ -17,7 +17,7 @@ ExecScript(i) {
 Click
 Click
 Click Right
-Sleep, 200
+Sleep, 400
 Send, {Down}{Down}{Enter}
 Sleep, 2000
 F3::
