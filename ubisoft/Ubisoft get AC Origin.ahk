@@ -38,6 +38,12 @@ Loop, 60 {
     Sleep, 1000
     Click, 622, 402
     Sleep, 8000
+    ;agree term service------------
+    Click, 45, 310
+    Sleep, 100
+    Click, 618, 409 ;continue button
+    ;--------
+    Sleep, 2000
     Click, 46, 402 ;skip 2 step
     Sleep, 15000
 +!^l::
