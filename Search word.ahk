@@ -21,26 +21,18 @@ Sleep, 400
 Send, {Down}{Down}{Enter}
 Sleep, 2000
 F3::
-ExecScript(0)
-Sleep, 200
+ExecScript(0) ; open Image in new Tab
+Sleep, 300
 Send, ^+{Tab}
 Sleep, 50
 +`::
-ExecScript(1)
+ExecScript(1) ; append Cambridge Dictionary then search
 Sleep, 1400
 ExecScript(2)
 Sleep, 3000
-ExecScript(4)
+Send, q
 Sleep, 3000
-ExecScript(3)
-return
-
-F2::
-ExecScript(4)
-return
-
-F1::
-ExecScript(3)
+Send, w
 return
 
 ^`::
@@ -52,12 +44,6 @@ Sleep, 100
 ExecScript(8)
 Sleep, 1000
 Send, %clipboard%
-return
-
-F4::
-WinActivate, ahk_exe chrome.exe
-Sleep, 100
-Send, {CtrlDown}e{CtrlUp}
 return
 
 #/::
