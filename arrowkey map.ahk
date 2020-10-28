@@ -30,3 +30,7 @@ if (GetKeyState("Capslock", "T") = 0)
  Else
     Send, ^h
 Return
+
+$^\::
+Send, ^l
+Return
