@@ -13,13 +13,31 @@ switch Key {
         Send, 🥺
     return
     case 3:
-        Send, 🙃
+        Send, 👉👈
     return
     case 4:
-        Send, 🤤
+        Send, 🙃
     return
     case 5:
+        Send, 🤤
+    return
+    case 6:
         Send, 😨
+    return
+    case 7:
+        Send, 🤦‍♂️
+    return
+    case 8:
+        Send, 🙋‍♂️
+    return
+    case 9:
+        Send, 💁‍♂️
+    return
+    case 0:
+        Send, 😁
+    return
+    case "d":
+        Send, 😃
     return
 }
 Return
