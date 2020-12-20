@@ -34,3 +34,10 @@ Return
 $^\::
 Send, ^l
 Return
+
+; click middle of the screen
+PrintScreen::
+WinGetPos, X, Y, Width, Height, A
+MouseMove, (Width / 2), (Height / 2)
+Click
+return
