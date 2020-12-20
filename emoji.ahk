@@ -42,5 +42,8 @@ switch Key {
     case "c":
         Send, 👏
     return
+    case "p":
+        Send, 🙏
+    return
 }
 Return
