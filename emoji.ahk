@@ -45,14 +45,26 @@ switch Key {
     case "p":
         Send, 🙏
     return
-    case "z":
-        Send, 🤦‍♂️
+    case "b":
+        Send, #;
+        Sleep, 20
+        Send, palm
+        Send, {Right 3}{Enter}
+        ; 🤦‍♂️
     return
-    case "x":
-        Send, 🙋‍♂️
+    case "n":
+        Send, #;
+        Sleep, 20
+        Send, raise
+        Send, {Right 3}{Enter}
+        ;🙋‍♂️
     return
-    case "c":
-        Send, 💁‍♂️
+    case "m":
+        Send, #;
+        Sleep, 20
+        Send, tip
+        Send, {Right 1}{Enter}
+        ;💁‍♂️
     return
 }
-Return
+return
