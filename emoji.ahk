@@ -25,13 +25,13 @@ switch Key {
         Send, 😨
     return
     case 7:
-        Send, 🤦‍♂️
+        Send, 😘
     return
     case 8:
-        Send, 🙋‍♂️
+        Send, 😎
     return
     case 9:
-        Send, 💁‍♂️
+        Send, 😜
     return
     case 0:
         Send, 😁
@@ -44,6 +44,15 @@ switch Key {
     return
     case "p":
         Send, 🙏
+    return
+    case "z":
+        Send, 🤦‍♂️
+    return
+    case "x":
+        Send, 🙋‍♂️
+    return
+    case "c":
+        Send, 💁‍♂️
     return
 }
 Return
