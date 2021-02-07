@@ -72,5 +72,8 @@ switch Key {
         Send, {Right 1}{Enter}
         ;💁‍♂️
     return
+    case "/":
+        Send, 😕
+    return
 }
 return

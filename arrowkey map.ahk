@@ -32,7 +32,10 @@ if (GetKeyState("Capslock", "T") = 0)
 Return
 
 $^\::
-Send, ^l
+if (GetKeyState("Capslock", "T") = 0)
+    Send, ^l
+ Else
+    Send, ^\
 Return
 
 ; click middle of the screen
