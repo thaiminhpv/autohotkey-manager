@@ -51,6 +51,9 @@ switch Key {
     case ";":
         Send, 😉
     return
+    case "h":
+        Send, ❤️
+    return
     case "b":
         Send, #;
         Sleep, 20
