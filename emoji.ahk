@@ -15,26 +15,23 @@ switch Key {
     case 3:
         Send, 👉👈
     return
-    case 4:
+    case "i":
         Send, 🙃
     return
-    case 5:
-        Send, 🤤
-    return
-    case 6:
+    case "s":
         Send, 😨
     return
-    case 7:
+    case "o":
         Send, 😘
     return
-    case 8:
+    case "g":
         Send, 😎
     return
-    case 9:
-        Send, 😜
-    return
-    case 0:
+    case "b":
         Send, 😁
+    return
+    case "m":
+        Send, 🤤
     return
     case "d":
         Send, 😃
@@ -42,7 +39,13 @@ switch Key {
     case "c":
         Send, 👏
     return
+    case "w":
+        Send, 🥴
+    return
     case "p":
+        Send, 😛
+    return
+    case "x":
         Send, 🙏
     return
     case "k":
@@ -54,21 +57,21 @@ switch Key {
     case "h":
         Send, ❤️
     return
-    case "b":
+    case "f":
         Send, #;
         Sleep, 20
         Send, palm
         Send, {Right 3}{Enter}
         ; 🤦‍♂️
     return
-    case "n":
+    case "r":
         Send, #;
         Sleep, 20
         Send, raise
         Send, {Right 3}{Enter}
         ;🙋‍♂️
     return
-    case "m":
+    case "e":
         Send, #;
         Sleep, 20
         Send, tip
