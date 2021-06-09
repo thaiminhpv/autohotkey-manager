@@ -10,33 +10,33 @@ Else
     Send, ^j
 Return
 
-$^k::
-if (GetKeyState("Capslock", "T") = 0)
-    Send, {Up}
-Else
-    Send, ^k
-Return
+; $^k::
+; if (GetKeyState("Capslock", "T") = 0)
+;     Send, {Up}
+; Else
+;     Send, ^k
+; Return
 
-$^l::
-if (GetKeyState("Capslock", "T") = 0)
-    Send, {Right}
-Else
-    Send, ^l
-Return
+; $^l::
+; if (GetKeyState("Capslock", "T") = 0)
+;     Send, {Right}
+; Else
+;     Send, ^l
+; Return
 
-$^h::
-if (GetKeyState("Capslock", "T") = 0)
-    Send, {Left} 
- Else
-    Send, ^h
-Return
+; $^h::
+; if (GetKeyState("Capslock", "T") = 0)
+;     Send, {Left} 
+;  Else
+;     Send, ^h
+; Return
 
-$^\::
-if (GetKeyState("Capslock", "T") = 0)
-    Send, ^l
- Else
-    Send, ^\
-Return
+; $^\::
+; if (GetKeyState("Capslock", "T") = 0)
+;     Send, ^l
+;  Else
+;     Send, ^\
+; Return
 
 ; click middle of the screen
 PrintScreen::
