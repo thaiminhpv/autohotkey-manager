@@ -57,6 +57,15 @@ switch Key {
     case "h":
         Send, ❤️
     return
+    case "/":
+        Send, 😕
+    return
+    case ",":
+        Send, ←
+    return
+    case ".":
+        Send, →
+    return
     case "f":
         Send, #;
         Sleep, 20
@@ -77,9 +86,6 @@ switch Key {
         Send, tip
         Send, {Right 1}{Enter}
         ;💁‍♂️
-    return
-    case "/":
-        Send, 😕
     return
 }
 return
